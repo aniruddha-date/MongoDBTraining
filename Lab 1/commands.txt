@@ -1,0 +1,41 @@
+List of all MongoDB commands
+mongod --port=30000 --dbpath=C:\Users\anidate\FutureNova\DB\
+
+
+mongo --port=30000
+
+show dbs
+
+db.mydb1.save({x:4,y:6})
+db.mydb1.find()
+
+
+var demoConfig={
+	"_id": "demo",
+	"members": [
+			{
+				"_id":0,
+				"host":"localhost:30000",
+				"priority":10
+			},
+			{
+				"_id":1,
+				"host":"localhost:40000"
+			},
+			{
+				"_id":2,
+				"host":"localhost:50000",
+				"arbiterOnly":true
+			}
+	]
+}
+
+rs.initiate(demoConfig)
+
+showdbs
+
+use local
+use mydb1
+db.mydb1.find()
+{ "_id" : ObjectId("575e9c41ef9e595ce50d6fff"), "x" : 4, "y" : 6 }
+ rs.slaveOk()
